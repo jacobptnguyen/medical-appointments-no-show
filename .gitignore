@@ -1,0 +1,47 @@
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+coverage/
+
+# Packaging / build outputs
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+.env/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Data
+data/
+
+# Node.js
+frontend/node_modules/
+frontend/build/
+
+# Environment & secrets
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Logs & temp files
+*.log
+*.tmp
+*.swp
+
+# OS-specific
+.DS_Store
+Thumbs.db

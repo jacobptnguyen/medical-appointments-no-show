@@ -1,0 +1,89 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 2rem;
+  color: white;
+  text-align: center;
+}
+
+.App-header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.App-header p {
+  opacity: 0.9;
+  font-size: 1rem;
+}
+
+.App-main {
+  flex: 1;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(500px, 560px);
+  gap: 2rem;
+  width: 100%;
+  max-width: 1100px;
+  align-items: start;
+  justify-content: center;
+  transition: grid-template-columns 0.3s ease;
+}
+
+.layout.with-result {
+  grid-template-columns: minmax(500px, 560px) minmax(260px, 1fr);
+  justify-content: start;
+}
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.error-message,
+.prediction-result {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.error-message {
+  color: #c33;
+  border-color: #fcc;
+  background-color: #fee;
+}
+
+.prediction-result h2 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.result-content {
+  text-align: center;
+}
+
+.prediction-label {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.probability {
+  font-size: 1.1rem;
+  color: #666;
+}
+
