@@ -26,10 +26,22 @@ app.add_middleware(
 )
 
 # Load model and scaler
-BASE_DIR = Path(__file__).resolve().parent.parent
-MODEL_PATH = BASE_DIR / "models" / "model.pkl"
-SCALER_PATH = BASE_DIR / "models" / "scaler.pkl"
-LABEL_ENCODER_PATH = BASE_DIR / "models" / "label_encoder.pkl"
+BACKEND_DIR = Path(__file__).resolve().parent
+MODELS_DIR_CANDIDATES = [
+    BACKEND_DIR / "models",
+    BACKEND_DIR.parent / "models",
+]
+
+for candidate in MODELS_DIR_CANDIDATES:
+    if candidate.exists():
+        MODELS_DIR = candidate
+        break
+else:
+    MODELS_DIR = MODELS_DIR_CANDIDATES[0]
+
+MODEL_PATH = MODELS_DIR / "model.pkl"
+SCALER_PATH = MODELS_DIR / "scaler.pkl"
+LABEL_ENCODER_PATH = MODELS_DIR / "label_encoder.pkl"
 
 try:
     with open(MODEL_PATH, "rb") as f:
