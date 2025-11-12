@@ -1,0 +1,16 @@
+[build]
+pkgs = [
+  "python311",
+  "pip",
+  "rustc",
+  "cargo",
+  "gcc",
+  "libffi",
+  "openssl",
+  "pkg-config"
+]
+
+[phases.setup]
+commands = [
+  "python -m pip install --upgrade pip"
+]

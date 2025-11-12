@@ -1,2 +1,0 @@
-[build]
-pkgs = ["gcc", "python311", "libffi", "openssl"]
