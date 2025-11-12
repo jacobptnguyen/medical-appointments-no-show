@@ -14,10 +14,13 @@ function App() {
     // Fetch neighbourhoods on component mount
     api.get<NeighbourhoodsResponse>('/neighbourhoods')
       .then(response => {
-        setNeighbourhoods(response.data.neighbourhoods);
+        const data = response?.data;
+        const list = Array.isArray(data?.neighbourhoods) ? data.neighbourhoods : [];
+        setNeighbourhoods(list);
       })
       .catch(err => {
         console.error('Error fetching neighbourhoods:', err);
+        setNeighbourhoods([]);
       });
   }, []);
 
