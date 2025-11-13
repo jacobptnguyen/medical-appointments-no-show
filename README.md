@@ -26,4 +26,4 @@ A machine learning web app that predicts patient appointment attendance.
 ## Tech Stack
 
 - **Frontend:** React, Vercel
-- **Backend:** FastAPI, Railway
+- **Backend:** FastAPI, Render
