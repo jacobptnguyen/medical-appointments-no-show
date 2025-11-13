@@ -1,15 +1,6 @@
 [build]
+pkgManager = "pip"
 aptPackages = ["libgomp1"]
-pkgs = [
-  "python311",
-  "pip",
-  "rustc",
-  "cargo",
-  "gcc",
-  "gfortran",
-  "blas",
-  "lapack"
-]
 
 [phases.setup]
 commands = [
