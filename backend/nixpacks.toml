@@ -1,10 +1,17 @@
 [build]
+aptPackages = ["libgomp1"]
 pkgs = [
   "python311",
   "pip",
+  "rustc",
+  "cargo",
   "gcc",
   "gfortran",
-  "libgomp",
   "blas",
   "lapack"
+]
+
+[phases.setup]
+commands = [
+  "python -m pip install --upgrade pip"
 ]
