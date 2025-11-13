@@ -1,4 +1,11 @@
 import os
+
+os.environ["OPENBLAS_NUM_THREADS"] = os.environ.get("OPENBLAS_NUM_THREADS", "1")
+os.environ["MKL_NUM_THREADS"] = os.environ.get("MKL_NUM_THREADS", "1")
+os.environ["NUMEXPR_NUM_THREADS"] = os.environ.get("NUMEXPR_NUM_THREADS", "1")
+os.environ["OMP_NUM_THREADS"] = os.environ.get("OMP_NUM_THREADS", "1")
+os.environ["XGBOOST_ENABLE_FALLBACK"] = os.environ.get("XGBOOST_ENABLE_FALLBACK", "1")
+
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
