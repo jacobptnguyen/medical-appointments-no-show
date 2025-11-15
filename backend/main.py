@@ -18,15 +18,28 @@ from pathlib import Path
 app = FastAPI(title="Medical Appointments No-Show Prediction API")
 
 # Enable CORS for frontend
-allowed_origins = [
-    origin.strip()
-    for origin in os.getenv("FRONTEND_ORIGINS", "http://localhost:3000").split(",")
-    if origin.strip()
+# Default origins include localhost and common deployment domains
+default_origins = [
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "https://medical-appointments-no-show.vercel.app",
 ]
+
+# Get additional origins from environment variable (comma-separated)
+env_origins = os.getenv("FRONTEND_ORIGINS", "").split(",")
+env_origins = [origin.strip() for origin in env_origins if origin.strip()]
+
+# Combine default and environment origins
+allowed_origins = default_origins + env_origins
+
+# Regex pattern for Vercel preview deployments (*.vercel.app)
+# This allows all Vercel preview deployments to access the API
+vercel_regex = r"https://.*\.vercel\.app"
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=allowed_origins,
+    allow_origins=allowed_origins,  # Exact matches
+    allow_origin_regex=vercel_regex,  # Pattern matches for Vercel previews
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

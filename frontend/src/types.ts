@@ -31,5 +31,7 @@ export interface PredictionFormProps {
   onSubmit: (formData: PredictionRequest) => void;
   neighbourhoods: Neighbourhood[];
   loading: boolean;
+  neighbourhoodsLoading?: boolean;
+  neighbourhoodsError?: string | null;
 }
 

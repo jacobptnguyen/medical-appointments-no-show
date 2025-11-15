@@ -2,7 +2,13 @@ import React, { useState, ChangeEvent, FormEvent } from 'react';
 import './PredictionForm.css';
 import { PredictionFormProps, PredictionRequest } from '../types';
 
-const PredictionForm: React.FC<PredictionFormProps> = ({ onSubmit, neighbourhoods, loading }) => {
+const PredictionForm: React.FC<PredictionFormProps> = ({ 
+  onSubmit, 
+  neighbourhoods, 
+  loading,
+  neighbourhoodsLoading = false,
+  neighbourhoodsError = null
+}) => {
   const [formData, setFormData] = useState<PredictionRequest>({
     Gender: 0,
     Age: 30,
@@ -69,17 +75,27 @@ const PredictionForm: React.FC<PredictionFormProps> = ({ onSubmit, neighbourhood
             value={formData.Neighbourhood}
             onChange={handleChange}
             required
+            disabled={neighbourhoodsLoading || !!neighbourhoodsError}
           >
-            {neighbourhoods.length > 0 ? (
+            {neighbourhoodsLoading ? (
+              <option value={0}>Loading...</option>
+            ) : neighbourhoodsError ? (
+              <option value={0}>Error: {neighbourhoodsError}</option>
+            ) : neighbourhoods.length > 0 ? (
               neighbourhoods.map(n => (
                 <option key={n.id} value={n.id}>
                   {n.name}
                 </option>
               ))
             ) : (
-              <option value={0}>Loading...</option>
+              <option value={0}>No neighbourhoods available</option>
             )}
           </select>
+          {neighbourhoodsError && (
+            <small style={{ color: 'red', display: 'block', marginTop: '4px' }}>
+              {neighbourhoodsError}
+            </small>
+          )}
         </div>
 
         <div className="form-group">
@@ -167,7 +183,7 @@ const PredictionForm: React.FC<PredictionFormProps> = ({ onSubmit, neighbourhood
         </div>
       </div>
 
-      <button type="submit" className="submit-button" disabled={loading}>
+      <button type="submit" className="submit-button" disabled={loading || !!neighbourhoodsError}>
         {loading ? 'Predicting...' : 'Predict No-Show'}
       </button>
     </form>
