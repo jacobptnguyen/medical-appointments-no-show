@@ -4,6 +4,12 @@ A machine learning web app that predicts patient appointment attendance.
 
 ## Live Demo
 
+🚀 **[Try It Out →](https://medical-appointments-no-show.vercel.app/)**
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20App-success?style=for-the-badge&logo=vercel)](https://medical-appointments-no-show.vercel.app/)
+
+🌐 **URL:** https://medical-appointments-no-show.vercel.app/
+
 ## Best Model Performance
 
 | Metric        | Value |
