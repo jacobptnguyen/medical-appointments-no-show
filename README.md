@@ -6,6 +6,11 @@ A machine learning web app that predicts patient appointment attendance.
 
 🚀 **[Try It Out →](https://medical-appointments-no-show.vercel.app/)**
 
+## Tech Stack
+
+- **Frontend:** React, Vercel
+- **Backend:** FastAPI, Render
+
 ## Best Model Performance
 
 | Metric        | Value |
@@ -24,8 +29,3 @@ A machine learning web app that predicts patient appointment attendance.
 - **Name:** Medical Appointment No Shows
 - **Source:** V. Simoes et al., Kaggle (2016)
 - **Link:** [https://www.kaggle.com/datasets/joniarroba/noshowappointments](https://www.kaggle.com/datasets/joniarroba/noshowappointments)
-
-## Tech Stack
-
-- **Frontend:** React, Vercel
-- **Backend:** FastAPI, Render
